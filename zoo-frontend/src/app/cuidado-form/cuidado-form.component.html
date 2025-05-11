@@ -1,0 +1,35 @@
+<div class="container">
+  <h2>{{ formTitle }}</h2>
+
+  <form [formGroup]="cuidadoForm" (ngSubmit)="saveCuidado()">
+    <div class="mb-3">
+      <label for="nome" class="form-label">Nome do Cuidado:</label>
+      <input type="text" id="nome" formControlName="nome" class="form-control"
+             [ngClass]="{'is-invalid': f['nome'].invalid && f['nome'].touched}">
+      <div *ngIf="f['nome'].invalid && f['nome'].touched" class="invalid-feedback">
+        Nome do Cuidado é obrigatório.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="descricao" class="form-label">Descrição:</label>
+      <textarea id="descricao" formControlName="descricao" class="form-control" rows="3"
+                [ngClass]="{'is-invalid': f['descricao'].invalid && f['descricao'].touched}"></textarea>
+      <div *ngIf="f['descricao'].invalid && f['descricao'].touched" class="invalid-feedback">
+        Descrição é obrigatória.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="frequencia" class="form-label">Frequência:</label>
+      <input type="text" id="frequencia" formControlName="frequencia" class="form-control"
+             [ngClass]="{'is-invalid': f['frequencia'].invalid && f['frequencia'].touched}">
+      <div *ngIf="f['frequencia'].invalid && f['frequencia'].touched" class="invalid-feedback">
+        Frequência é obrigatória.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success me-2" [disabled]="!cuidadoForm.valid">Salvar</button>
+    <button type="button" class="btn btn-secondary" (click)="router.navigate(['/cuidados'])">Cancelar</button>
+  </form>
+</div>

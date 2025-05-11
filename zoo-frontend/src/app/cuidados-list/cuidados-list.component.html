@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>Lista de Cuidados</h2>
+
+  <button [routerLink]="['/cuidados/add']" class="btn btn-primary mb-3">Adicionar Novo Cuidado</button>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome do Cuidado</th>
+        <th>Descrição</th>
+        <th>Frequência</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cuidado of cuidados">
+        <td>{{ cuidado.id }}</td>
+        <td>{{ cuidado.nome }}</td>
+        <td>{{ cuidado.descricao }}</td>
+        <td>{{ cuidado.frequencia }}</td>
+        <td>
+          <button [routerLink]="['/cuidados/edit', cuidado.id]" class="btn btn-sm btn-info me-2">Editar</button>
+          <button (click)="deleteCuidado(cuidado.id!)" class="btn btn-sm btn-danger">Excluir</button>
+        </td>
+      </tr>
+      <tr *ngIf="cuidados.length === 0">
+        <td colspan="5">Nenhum cuidado encontrado.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
