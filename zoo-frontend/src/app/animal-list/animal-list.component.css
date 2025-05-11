@@ -1,0 +1,52 @@
+.table-responsive {
+  width: 100%;
+  margin: 0;
+  padding: 0 15px;
+}
+
+.table {
+  margin-bottom: 30px;
+}
+
+/* Ajuste para as colunas da tabela */
+.table th:nth-child(1), /* Nome */
+.table td:nth-child(1) {
+  width: 20%;
+}
+
+.table th:nth-child(2), /* Espécie */
+.table td:nth-child(2) {
+  width: 20%;
+}
+
+.table th:nth-child(3), /* Habitat */
+.table td:nth-child(3) {
+  width: 20%;
+}
+
+.table th:nth-child(4), /* País de Origem */
+.table td:nth-child(4) {
+  width: 20%;
+}
+
+.table th:nth-child(5), /* Ações */
+.table td:nth-child(5) {
+  width: 20%;
+  min-width: 150px;
+}
+
+/* Ajuste para os botões de ação */
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 0.9rem;
+}
+
+/* Ajuste para o dropdown */
+.form-select {
+  min-width: 200px;
+}
+
+/* Ajuste para o título */
+h2 {
+  margin-bottom: 30px !important;
+}

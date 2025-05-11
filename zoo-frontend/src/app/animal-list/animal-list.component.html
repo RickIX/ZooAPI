@@ -1,36 +1,50 @@
-<div class="container">
-  <h2>Lista de Animais</h2>
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Lista de Animais</h2>
 
-  <button [routerLink]="['/animals/add']" class="btn btn-primary mb-3">Adicionar Novo Animal</button>
+  <div class="button-group">
+    <div class="button-group-left">
+      <button class="btn btn-primary" (click)="navigateToAdd()">
+        <i class="fas fa-plus"></i> Adicionar Novo Animal
+      </button>
+      <button class="btn btn-white" (click)="navigateToStats()">
+        <i class="fas fa-chart-bar"></i> Ver Estatísticas
+      </button>
+    </div>
+    <div class="button-group-right">
+      <select class="form-select" [(ngModel)]="selectedHabitat" (change)="filterByHabitat()">
+        <option value="">Todos os Habitats</option>
+        <option *ngFor="let habitat of habitats" [value]="habitat">{{habitat}}</option>
+      </select>
+    </div>
+  </div>
 
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>Espécie</th>
-        <th>Habitat</th>
-        <th>País de Origem</th>
-        <th>Data de Nascimento</th>
-        <th>Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let animal of animals">
-        <td>{{ animal.id }}</td>
-        <td>{{ animal.nome }}</td>
-        <td>{{ animal.especie }}</td>
-        <td>{{ animal.habitat }}</td>
-        <td>{{ animal.paisOrigem }}</td>
-        <td>{{ animal.dataNascimento | date:'dd/MM/yyyy' }}</td>
-        <td>
-          <button [routerLink]="['/animals/edit', animal.id]" class="btn btn-sm btn-info me-2">Editar</button>
-          <button (click)="deleteAnimal(animal.id!)" class="btn btn-sm btn-danger">Excluir</button>
-        </td>
-      </tr>
-      <tr *ngIf="animals.length === 0">
-        <td colspan="7">Nenhum animal encontrado.</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Espécie</th>
+          <th>Habitat</th>
+          <th>País de Origem</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let animal of filteredAnimals">
+          <td>{{animal.nome}}</td>
+          <td>{{animal.especie}}</td>
+          <td>{{animal.habitat}}</td>
+          <td>{{animal.paisOrigem}}</td>
+          <td>
+            <button class="btn btn-info btn-sm me-2" (click)="navigateToEdit(animal.id)">
+              <i class="fas fa-edit"></i> Editar
+            </button>
+            <button class="btn btn-danger btn-sm" (click)="deleteAnimal(animal.id)">
+              <i class="fas fa-trash"></i> Excluir
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

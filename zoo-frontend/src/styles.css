@@ -1,0 +1,344 @@
+/* Importando fonte do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #2E7D32;    /* Verde floresta */
+  --secondary-color: #FFA000;  /* Âmbar */
+  --accent-color: #8D6E63;     /* Marrom terroso */
+  --background-color: #F5F5F5;
+  --text-color: #333333;
+  --card-bg: #FFFFFF;
+  --header-bg: #1B5E20;        /* Verde escuro */
+  --success-color: #689F38;    /* Verde claro */
+  --warning-color: #F57C00;    /* Laranja */
+  --info-color: #795548;       /* Marrom */
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilização do cabeçalho */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--header-bg);
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Estilização dos botões */
+.btn {
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+.btn-primary:hover {
+  background-color: #1B5E20 !important;
+  border-color: #1B5E20 !important;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color) !important;
+  border-color: var(--secondary-color) !important;
+  color: white !important;
+}
+
+.btn-secondary:hover {
+  background-color: #F57C00 !important;
+  border-color: #F57C00 !important;
+}
+
+.btn-info {
+  background-color: var(--accent-color) !important;
+  border-color: var(--accent-color) !important;
+  color: white !important;
+}
+
+.btn-info:hover {
+  background-color: #6D4C41 !important;
+  border-color: #6D4C41 !important;
+}
+
+.btn-success {
+  background-color: var(--success-color) !important;
+  border-color: var(--success-color) !important;
+  color: white !important;
+}
+
+.btn-success:hover {
+  background-color: #558B2F !important;
+  border-color: #558B2F !important;
+}
+
+.btn-warning {
+  background-color: var(--warning-color) !important;
+  border-color: var(--warning-color) !important;
+  color: white !important;
+}
+
+.btn-warning:hover {
+  background-color: #EF6C00 !important;
+  border-color: #EF6C00 !important;
+}
+
+.btn-danger {
+  background-color: #D32F2F !important;
+  border-color: #D32F2F !important;
+  color: white !important;
+}
+
+.btn-danger:hover {
+  background-color: #B71C1C !important;
+  border-color: #B71C1C !important;
+}
+
+/* Novo estilo para botão branco */
+.btn-white {
+  background-color: white !important;
+  border: 2px solid var(--primary-color) !important;
+  color: var(--primary-color) !important;
+}
+
+.btn-white:hover {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+/* Layout dos botões */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 0 15px;
+}
+
+.button-group-left {
+  display: flex;
+  gap: 10px;
+}
+
+.button-group-right {
+  display: flex;
+  gap: 10px;
+}
+
+/* Ajuste para o dropdown */
+.form-select {
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 8px 16px;
+  font-weight: 500;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(46, 125, 50, 0.25);
+}
+
+/* Estilização das tabelas */
+.table {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.table thead {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.table th {
+  font-weight: 500;
+  padding: 15px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 15px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* Estilização dos cards */
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  margin: 0 auto;
+  max-width: 95%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-header {
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 12px 12px 0 0 !important;
+  padding: 15px 20px;
+  text-align: center;
+}
+
+.card-body {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Estilização dos formulários */
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 10px 15px;
+  margin: 0 auto;
+  max-width: 95%;
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(46, 125, 50, 0.25);
+}
+
+/* Estilização dos badges */
+.badge {
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+/* Sobrescrever classes do Bootstrap */
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+
+.bg-secondary {
+  background-color: var(--secondary-color) !important;
+}
+
+.bg-success {
+  background-color: var(--success-color) !important;
+}
+
+.bg-info {
+  background-color: var(--info-color) !important;
+}
+
+.bg-warning {
+  background-color: var(--warning-color) !important;
+}
+
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.text-secondary {
+  color: var(--secondary-color) !important;
+}
+
+.text-success {
+  color: var(--success-color) !important;
+}
+
+.text-info {
+  color: var(--info-color) !important;
+}
+
+.text-warning {
+  color: var(--warning-color) !important;
+}
+
+/* Container principal */
+.container {
+  padding: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+/* Navbar */
+nav {
+  background-color: var(--header-bg);
+  padding: 15px 0;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: background-color 0.3s;
+  margin: 0 10px;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card, .table {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Ajustes para listas */
+.list-group {
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+.list-group-item {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+}
+
+/* Ajustes para botões de ação */
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+/* Ajustes para formulários */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  width: 95%;
+}

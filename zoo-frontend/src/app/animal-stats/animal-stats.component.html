@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="stats-header">
+    <h2><i class="fas fa-chart-bar"></i> Estatísticas do Zoológico</h2>
+    <p class="text-muted">Análise detalhada da nossa população animal</p>
+  </div>
+
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <div class="card total-card">
+        <div class="card-body text-center">
+          <i class="fas fa-paw fa-3x mb-3"></i>
+          <h3 class="card-title">Total de Animais</h3>
+          <h2 class="display-4">{{ totalAnimals }}</h2>
+          <p class="text-muted">Espécies sob nossos cuidados</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          <i class="fas fa-tree"></i> Distribuição por Habitat
+        </div>
+        <div class="card-body">
+          <ul class="list-group">
+            <li *ngFor="let stat of habitatStats" class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <i class="fas fa-leaf text-success me-2"></i>
+                {{ stat.habitat }}
+              </div>
+              <span class="badge bg-primary rounded-pill">{{ stat.count }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          <i class="fas fa-dna"></i> Distribuição por Espécie
+        </div>
+        <div class="card-body">
+          <ul class="list-group">
+            <li *ngFor="let stat of speciesStats" class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <i class="fas fa-paw text-warning me-2"></i>
+                {{ stat.especie }}
+              </div>
+              <span class="badge bg-success rounded-pill">{{ stat.count }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          <i class="fas fa-globe-americas"></i> Distribuição por País de Origem
+        </div>
+        <div class="card-body">
+          <ul class="list-group">
+            <li *ngFor="let stat of countryStats" class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <i class="fas fa-map-marker-alt text-info me-2"></i>
+                {{ stat.pais }}
+              </div>
+              <span class="badge bg-info rounded-pill">{{ stat.count }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
