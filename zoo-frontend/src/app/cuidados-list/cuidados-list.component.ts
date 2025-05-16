@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Cuidado, CuidadoService } from '../cuidado.service';
+import { Cuidado, CuidadoService } from '../services/cuidado.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -21,10 +21,10 @@ export class CuidadosListComponent implements OnInit {
 
   loadCuidados(): void {
     this.cuidadoService.getAllCuidados().subscribe({
-      next: (data) => {
+      next: (data: Cuidado[]) => {
         this.cuidados = data;
       },
-      error: (error) => {
+      error: (error: any) => {
         console.error('Erro ao carregar cuidados:', error);
       }
     });
@@ -37,7 +37,7 @@ export class CuidadosListComponent implements OnInit {
           console.log('Cuidado excluído com sucesso!');
           this.loadCuidados();
         },
-        error: (error) => {
+        error: (error: any) => {
           console.error('Erro ao excluir cuidado:', error);
         }
       });

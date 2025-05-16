@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Animal, AnimalService } from '../animal.service';
+import { Animal, AnimalCreate, AnimalService } from '../services/animal.service';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -27,7 +27,6 @@ export class AnimalFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.animalForm = this.fb.group({
-      id: [null],
       nome: ['', Validators.required],
       descricao: ['', Validators.required],
       dataNascimento: ['', Validators.required],
@@ -35,7 +34,6 @@ export class AnimalFormComponent implements OnInit {
       habitat: ['', Validators.required],
       paisOrigem: ['', Validators.required]
     });
-
 
     this.route.paramMap.subscribe(params => {
       const idParam = params.get('id');
@@ -50,10 +48,10 @@ export class AnimalFormComponent implements OnInit {
 
   loadAnimal(id: number): void {
     this.animalService.getAnimalById(id).subscribe({
-      next: (animal) => {
+      next: (animal: Animal) => {
         this.animalForm.patchValue(animal);
       },
-      error: (error) => {
+      error: (error: any) => {
         console.error('Erro ao carregar animal para edição:', error);
       }
     });
@@ -61,28 +59,26 @@ export class AnimalFormComponent implements OnInit {
 
   saveAnimal(): void {
     if (this.animalForm.valid) {
-      const animal: Animal = this.animalForm.value;
+      const animalData: AnimalCreate = this.animalForm.value;
 
-      if (this.isEditMode) {
-
-        this.animalService.updateAnimal(this.animalId!, animal).subscribe({
+      if (this.isEditMode && this.animalId) {
+        this.animalService.updateAnimal(this.animalId, animalData).subscribe({
           next: () => {
             console.log('Animal atualizado com sucesso!');
             this.router.navigate(['/animals']);
           },
-          error: (error) => {
+          error: (error: any) => {
             console.error('Erro ao atualizar animal:', error);
           }
         });
       } else {
-         const animalToCreate = { ...animal, id: undefined };
-        this.animalService.createAnimal(animalToCreate).subscribe({
-          next: () => {
+        this.animalService.createAnimal(animalData).subscribe({
+          next: (animal: Animal) => {
             console.log('Animal cadastrado com sucesso!');
             this.router.navigate(['/animals']);
           },
-          error: (error) => {
-            console.error('Erro ao cadastrar animal:', error);
+          error: (error: any) => {
+            console.error('Erro ao criar animal:', error);
           }
         });
       }
@@ -90,5 +86,6 @@ export class AnimalFormComponent implements OnInit {
       this.animalForm.markAllAsTouched();
     }
   }
+
   get f() { return this.animalForm.controls; }
 }

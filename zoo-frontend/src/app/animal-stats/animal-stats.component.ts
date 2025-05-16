@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Animal, AnimalService } from '../animal.service';
+import { Animal, AnimalService } from '../services/animal.service';
 
 interface HabitatStats {
   habitat: string;
@@ -38,13 +38,13 @@ export class AnimalStatsComponent implements OnInit {
 
   loadStats(): void {
     this.animalService.getAllAnimals().subscribe({
-      next: (data) => {
+      next: (data: Animal[]) => {
         this.totalAnimals = data.length;
         this.calculateHabitatStats(data);
         this.calculateSpeciesStats(data);
         this.calculateCountryStats(data);
       },
-      error: (error) => {
+      error: (error: any) => {
         console.error('Erro ao carregar estatísticas:', error);
       }
     });

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AnimalService } from '../services/animal.service';
-import { Animal } from '../models/animal.model';
+import { AnimalService, Animal } from '../services/animal.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -29,7 +28,7 @@ export class AnimalListComponent implements OnInit {
   }
 
   loadAnimals(): void {
-    this.animalService.getAnimals().subscribe({
+    this.animalService.getAllAnimals().subscribe({
       next: (data: Animal[]) => {
         this.animals = data;
         this.filteredAnimals = data;

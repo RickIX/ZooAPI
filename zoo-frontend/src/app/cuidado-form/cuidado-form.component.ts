@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Cuidado, CuidadoService } from '../cuidado.service';
+import { Cuidado, CuidadoService } from '../services/cuidado.service';
 
 @Component({
   selector: 'app-cuidado-form',
