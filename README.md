@@ -37,7 +37,6 @@ Sistema completo para gerenciamento de animais em um zoológico, desenvolvido co
 - `src/main/java/com/zoo/controller`: Controladores REST
 - `src/main/java/com/zoo/model`: Entidades
 - `src/main/java/com/zoo/repository`: Repositórios JPA
-- `src/main/java/com/zoo/service`: Serviços de negócio
 - `src/main/resources`: Configurações e propriedades
 
 ### Frontend
@@ -70,15 +69,6 @@ Sistema completo para gerenciamento de animais em um zoológico, desenvolvido co
 - Gráficos de distribuição
 - Layout responsivo e moderno
 
-## Estilo Visual
-- Tema personalizado com cores naturais
-- Verde floresta como cor principal
-- Âmbar como cor secundária
-- Marrom terroso como cor de destaque
-- Design responsivo e adaptativo
-- Animações suaves
-- Ícones intuitivos
-
 ## Como Executar
 
 ### Backend
@@ -86,7 +76,7 @@ Sistema completo para gerenciamento de animais em um zoológico, desenvolvido co
 2. Configure o banco de dados SQL Server:
    - Certifique-se de ter o SQL Server instalado e rodando
    - Crie um banco de dados chamado `zoo_db`
-   - Configure o arquivo `application.properties` com as credenciais corretas:
+   - Configure o arquivo `.env` com as credenciais corretas:
      ```properties
      spring.datasource.url=jdbc:sqlserver://<MAQUINA>\\SQLEXPRESS:1433;databaseName=zoodb;integratedSecurity=false;encrypt=true;trustServerCertificate=true;
      spring.datasource.username=seu_usuario
@@ -105,6 +95,6 @@ Sistema completo para gerenciamento de animais em um zoológico, desenvolvido co
 ## Requisitos
 - Java 17 ou superior
 - Node.js 18 ou superior
-- MySQL 8.0 ou superior
+- SQL Server
 - Maven 3.6 ou superior
 - Angular CLI 17 ou superior
